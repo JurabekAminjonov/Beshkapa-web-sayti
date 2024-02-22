@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 .yellow{
     color: yellow;
 }
@@ -18,6 +17,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 1000;
     /* flex-direction: column; */
 }
 .nav-menu{
@@ -125,7 +125,7 @@
 
 /* -------------bosh menu---------- */
 .bosh-menu{
-    background-image: url(./img/wallpaperflare.com_wallpaper.jpg);
+    background-image: url(./img/mahalla\ img.jpg);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -158,7 +158,9 @@
 .bosh-menu-information .lorem-mere-btn:hover{
     background-color: yellowgreen;
 }
-
+.colorr{
+    color: #d45d5d;
+}
 .bosh-sahifa-lorm-more{
     position: absolute;
     width: 80%;
@@ -419,7 +421,7 @@
 
 }
 /* <!-- ----------------fOOTER------------------- --> */
-.footer{
+.footerr{
     background-color: black;
     color: yellow;
     display: flex;
@@ -429,6 +431,7 @@
 }
 .footer-box{
     width: 100%;
+
     /* height: 50vh; */
     background-color: black;
     padding: 5rem;

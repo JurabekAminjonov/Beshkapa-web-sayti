@@ -1,6 +1,6 @@
 let API = 'https://randomuser.me/api/?results=12';
 let API1 = 'https://randomuser.me/api/?results=6';
-let API2 = 'https://randomuser.me/api/?results=6'
+let API2 = 'https://randomuser.me/api/?results=6';
 // https://diller-uz.onrender.com
 let menuIcon = document.querySelector('#menuIcon');
 let navMenu = document.querySelector('#nav-menu');
@@ -10,7 +10,8 @@ let boshMenuLorem = document.querySelector('.bosh-sahifa-lorm-more');
 let leremMoreBtn = document.querySelector('.lorem-mere-btn');
 let mahallaAzolar = document.querySelector('#mahallaAzolar');
 let yangilaklarItem = document.querySelector('.yangilaklar-item')
-let galleri = document.querySelector('.galleri')
+let galleri = document.querySelector('.galleri');
+let navbar = document.querySelector('.navbarr');
  
 menuIcon.addEventListener('click', () => {
     menuIcon.classList.toggle('menuEks');
@@ -35,87 +36,132 @@ leremMoreBtn.addEventListener('click', ()=>{
 });
 
 
+// <--------------------------scroll-------------->
+
+
+addEventListener('scroll', ()=>{
+    if(window.scrollY >= 600 ){
+        navbar.style.position = 'fixed'
+        navbar.style.transition = '5s'
+
+    }
+else{
+        navbar.style.position = 'sticky'
+    }
+})
+
+function onScrollHandler() {
+    console.log('Salom');
+}
+
+yangilaklarItem.addEventListener('scroll', onScrollHandler);
+
+
+
+
+
+
 // <--------------------------Mahalla azolari----------------->
  
-let getData = async(resurse) =>{
-    const request = await fetch(resurse);
-    const data = await request.json();
-    let User = (data.results);
-    User.forEach((e) => {
+// let getData = async(resurse) =>{
+//     const request = await fetch(resurse);
+//     const data = await request.json();
+//     let User = (data.results);
+//     User.forEach((e) => {
 
-        mahallaAzolar.innerHTML += `
-        <div class="col-10 col-md-4 col-lg-3 xodim">
-        <div class="xodim-img"><img src="${e.picture.large}"></div>
-        <h4>${e.phone}</h4>
-        <h4>${e.name.first} ${e.name.last}</h4>
-        <p>${e.registered.age}, ${e.registered.date} </p>
-        </div>
-        `
+//         mahallaAzolar.innerHTML += `
+//         <div class="col-10 col-md-4 col-lg-3 xodim">
+//         <div class="xodim-img"><img src="${e.picture.large}"></div>
+//         <h4>${e.phone}</h4>
+//         <h4>${e.name.first} ${e.name.last}</h4>
+//         <p>${e.registered.age}, ${e.registered.date} </p>
+//         </div>
+//         `
 
-    });
+//     });
 
-}
-getData(API)
+// }
+// getData(API)
 
 // <!-- ----------------yangiliklar------------------- -->
 
-let getData1 = async(resurse) =>{
-    const request = await fetch(resurse);
-    const data = await request.json();
-    let User = (data.results);
-    console.log(User)
+// let getData1 = async(resurse) =>{
+//     const request = await fetch(resurse);
+//     const data = await request.json();
+//     let User = (data.results);
+//     console.log(User)
 
-    User.forEach((e) => {
-        yangilaklarItem.innerHTML += `
-            <div class="col-10 col-md-4 col-lg-3 y-item">
-                <div class="y-item-page"><img src='${e.picture.large}'/></div>
-                <h5 class="y-item-title">${e.login.uuid}</h3>
-            </div>
-        `
-    });
+//     User.forEach((e) => {
+//         yangilaklarItem.innerHTML += `
+//             <div class="col-10 col-md-4 col-lg-3 y-item">
+//                 <div class="y-item-page"><img src='${e.picture.large}'/></div>
+//                 <h5 class="y-item-title">${e.login.uuid}</h3>
+//             </div>
+//         `
+//     });
 
-}
+// }
 
-getData1(API1)
+// getData1(API1)
 // <!-- ----------------GALLERIA------------------- -->
 
-let getData2 = async(resurse) =>{
-    const request = await fetch(resurse);
-    const data = await request.json();
-    let User = (data.results);
-    console.log(User)
+// let getData2 = async(resurse) =>{
+//     const request = await fetch(resurse);
+//     const data = await request.json();
+//     let User = (data.results);
+//     console.log(User)
 
-        galleri.innerHTML += `
-        <div class="rasimlar mt-5">
-        <div class="row rasimlar-row">
-            <div class="col-12 col-md-7 y-item1"><img src="${User[5].picture.large}" alt=""></div>
-            <div class="col-12 col-md-4 y-img" >
-                <div class="row">
-                    <div class="col-12 y-item"><img  src="${User[4].picture.large}" alt=""></div>
-                </div>
-                <div class="row">
-                    <div class="col-12 y-item"><img src="${User[2].picture.large}" alt=""></div>
-                </div>
-            </div>
-        </div>
-    </div>
+//         galleri.innerHTML += `
+//         <div class="rasimlar mt-5">
+//         <div class="row rasimlar-row">
+//             <div class="col-12 col-md-7 y-item1"><img src="${User[5].picture.large}" alt=""></div>
+//             <div class="col-12 col-md-4 y-img" >
+//                 <div class="row">
+//                     <div class="col-12 y-item"><img  src="${User[4].picture.large}" alt=""></div>
+//                 </div>
+//                 <div class="row">
+//                     <div class="col-12 y-item"><img src="${User[2].picture.large}" alt=""></div>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
 
-    <div class="rasimlar mt-5">
-        <div class="row rasimlar-row">
-            <div class="col-12 col-md-4 y-img" >
-                <div class="row">
-                    <div class="col-12 y-item"><img  src="${User[5].picture.large}" alt=""></div>
-                </div>
-                <div class="row">
-                    <div class="col-12 y-item"><img src="${User[2].picture.large}" alt=""></div>
-                </div>
-            </div>
-            <div class="col-12 col-md-7 y-item1 "><img src="${User[3].picture.large}" alt=""></div>
-        </div>
-    </div>
-        `
+//     <div class="rasimlar mt-5">
+//         <div class="row rasimlar-row">
+//             <div class="col-12 col-md-4 y-img" >
+//                 <div class="row">
+//                     <div class="col-12 y-item"><img  src="${User[5].picture.large}" alt=""></div>
+//                 </div>
+//                 <div class="row">
+//                     <div class="col-12 y-item"><img src="${User[2].picture.large}" alt=""></div>
+//                 </div>
+//             </div>
+//             <div class="col-12 col-md-7 y-item1 "><img src="${User[3].picture.large}" alt=""></div>
+//         </div>
+//     </div>
+//         `
 
-}
-{/* <img src='${e.picture.large}'/> */}
+// }
+// {/* <img src='${e.picture.large}'/> */}
 
 getData2(API2)
+
+console.log('salom')
+
+
+
+
+
+const observer = new IntersectionObserver ((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry)
+        if (entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll('.slayderr');
+hiddenElements.forEach((el) => observer.observe(el));
